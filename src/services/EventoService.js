@@ -1,39 +1,32 @@
-import api from '../config/api';
+import http from '../common/http-common';
 
-export const eventService = {
-  // Buscar todos os eventos
-  getAll: async (params = {}) => {
-    const response = await api.get('/events', { params });
-    return response.data;
-  },
+const API_URL = "evento/";
 
-  // Buscar evento por ID
-  getById: async (id) => {
-    const response = await api.get(`/events/${id}`);
-    return response.data;
-  },
-
-  // Criar novo evento
-  create: async (eventData) => {
-    const response = await api.post('/events', eventData);
-    return response.data;
-  },
-
-  // Atualizar evento
-  update: async (id, eventData) => {
-    const response = await api.put(`/events/${id}`, eventData);
-    return response.data;
-  },
-
-  // Deletar evento
-  delete: async (id) => {
-    const response = await api.delete(`/events/${id}`);
-    return response.data;
-  },
-
-  // Buscar estatísticas de eventos
-  getStats: async () => {
-    const response = await api.get('/events/stats');
-    return response.data;
-  }
+// Teste de conexão
+const test = () => {
+    return http.mainInstance.get(API_URL + 'test');
 };
+
+// Buscar todos os eventos
+const findAll = () => {
+    return http.mainInstance.get(API_URL + 'findAll');
+};
+
+// Buscar evento por ID
+const findById = (id) => {
+    return http.mainInstance.get(API_URL + `findById/${id}`);
+};
+
+// Cadastrar novo evento
+const save = (evento) => {
+    return http.mainInstance.post(API_URL + 'save', evento);
+};
+
+const EventoService = {
+    test,
+    findAll,
+    findById,
+    save
+};
+
+export default EventoService;
