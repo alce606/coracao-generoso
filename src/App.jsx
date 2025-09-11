@@ -13,6 +13,7 @@ import EditarEvento from './pages/EditarEvento';
 import LoginAdmin from './pages/LoginAdmin';
 import GerenciamentoAdmin from './pages/GerenciamentoAdmin';
 import TrocarSenhaAdmin from './pages/TrocarSenhaAdmin';
+import PerfilAdmin from './pages/PerfilAdmin';
 import EsqueceuSenha from './pages/EsqueceuSenha';
 import PerfilUsuario from './pages/PerfilUsuario';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -44,6 +45,11 @@ function App() {
             </ProtectedRoute>
           } />
           <Route path="/admin/trocar-senha" element={<TrocarSenhaAdmin />} />
+          <Route path="/admin/perfil" element={
+            <ProtectedRoute adminOnly={true}>
+              <PerfilAdmin />
+            </ProtectedRoute>
+          } />
           <Route path="/suporte" element={<Suporte />} />
           <Route path="/login" element={<Login />} />
           <Route path="/esqueceu-senha" element={<EsqueceuSenha />} />

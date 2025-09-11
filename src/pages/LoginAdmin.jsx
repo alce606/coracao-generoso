@@ -26,6 +26,7 @@ const LoginAdmin = () => {
 .then(
             () => {
                 localStorage.setItem('userType', 'admin');
+                window.dispatchEvent(new Event('userTypeChanged'));
                 const userJson = localStorage.getItem("user");
                 const user = JSON.parse(userJson || '{}');
                 if (user.statusUsuario == 'ATIVO') {

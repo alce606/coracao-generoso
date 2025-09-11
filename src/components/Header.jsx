@@ -79,7 +79,10 @@ const Header = () => {
               </div>
             ) : userType === 'admin' ? (
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                <Link to="/admin/gerenciamento" className="btn btn-secondary">
+                <Link to="/admin/perfil" className="btn btn-secondary">
+                  👨‍💼 Perfil Admin
+                </Link>
+                <Link to="/admin" className="btn btn-secondary">
                   ⚙️ Gerenciar
                 </Link>
                 <button 
