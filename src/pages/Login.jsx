@@ -72,7 +72,7 @@ const Login = () => {
 
             <div style={{ textAlign: 'center' }}>
               <p style={{ color: '#666', marginBottom: '10px' }}>
-                Esqueceu sua senha? <a href="#" style={{ color: '#dc143c' }}>Clique aqui</a>
+                Esqueceu sua senha? <Link to="/esqueceu-senha" style={{ color: '#dc143c' }}>Clique aqui</Link>
               </p>
               <p style={{ color: '#666', marginBottom: '10px' }}>
                 Não tem uma conta? <Link to="/cadastro" style={{ color: '#dc143c' }}>Cadastre-se</Link>

@@ -25,13 +25,13 @@ const LoginAdmin = () => {
       UsuarioService.signin(formData.email, formData.senha)
 .then(
             () => {
+                localStorage.setItem('userType', 'admin');
                 const userJson = localStorage.getItem("user");
                 const user = JSON.parse(userJson || '{}');
                 if (user.statusUsuario == 'ATIVO') {
-                    navigate('/admin/gerenciamento');
+                    navigate('/admin');
                 } else if (user.statusUsuario == 'TROCAR_SENHA') {
                     navigate(`/alterarsenha/` + user.id);
-                    //window.location.reload(); ordnael@email.com.br
                 }
 
             },
@@ -97,7 +97,7 @@ const LoginAdmin = () => {
 
             <div style={{ textAlign: 'center' }}>
               <p style={{ color: '#666', marginBottom: '10px' }}>
-                Esqueceu sua senha? <a href="#" style={{ color: '#dc143c' }}>Contate o suporte</a>
+                Esqueceu sua senha? <Link to="/admin/trocar-senha" style={{ color: '#dc143c' }}>Trocar senha</Link>
               </p>
               <p style={{ color: '#666' }}>
                 Usuário comum? <Link to="/login" style={{ color: '#dc143c' }}>Faça login aqui</Link>

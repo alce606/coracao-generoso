@@ -27,6 +27,10 @@ const GerenciamentoAdmin = () => {
     alert('⚙️ Configurações do Sistema:\n\n• Backup automático: Ativo\n• Notificações: Habilitadas\n• Modo manutenção: Desativo\n• Última atualização: Hoje\n\nPainel de configurações em desenvolvimento...');
   };
 
+  const handleTrocarSenha = () => {
+    navigate('/admin/trocar-senha');
+  };
+
   const handleChatSupport = () => {
     setShowChatManager(!showChatManager);
   };
@@ -182,6 +186,29 @@ const GerenciamentoAdmin = () => {
               borderRadius: '5px',
               cursor: 'pointer'
             }}>Ver Conversas</button>
+          </div>
+
+          <div 
+            className="card" 
+            style={{ 
+              background: '#fff0f0', 
+              cursor: 'pointer',
+              transition: 'transform 0.2s'
+            }}
+            onClick={handleTrocarSenha}
+            onMouseEnter={(e) => e.target.style.transform = 'translateY(-3px)'}
+            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+          >
+            <h3 style={{ color: '#dc143c', marginBottom: '15px' }}>🔐 Trocar Senha</h3>
+            <p style={{ marginBottom: '15px' }}>Alterar senha de administrador</p>
+            <button style={{
+              padding: '10px 20px',
+              background: '#dc143c',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer'
+            }}>Alterar Senha</button>
           </div>
 
           <div 

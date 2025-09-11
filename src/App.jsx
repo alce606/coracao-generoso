@@ -12,6 +12,8 @@ import DetalhesEvento from './pages/DetalhesEvento';
 import EditarEvento from './pages/EditarEvento';
 import LoginAdmin from './pages/LoginAdmin';
 import GerenciamentoAdmin from './pages/GerenciamentoAdmin';
+import TrocarSenhaAdmin from './pages/TrocarSenhaAdmin';
+import EsqueceuSenha from './pages/EsqueceuSenha';
 import PerfilUsuario from './pages/PerfilUsuario';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -36,13 +38,15 @@ function App() {
             </ProtectedRoute>
           } />
           <Route path="/login-admin" element={<LoginAdmin />} />
-          <Route path="/admin/gerenciamento" element={
-           
+          <Route path="/admin" element={
+            <ProtectedRoute adminOnly={true}>
               <GerenciamentoAdmin />
-           
+            </ProtectedRoute>
           } />
+          <Route path="/admin/trocar-senha" element={<TrocarSenhaAdmin />} />
           <Route path="/suporte" element={<Suporte />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/esqueceu-senha" element={<EsqueceuSenha />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/perfil" element={
             <ProtectedRoute>

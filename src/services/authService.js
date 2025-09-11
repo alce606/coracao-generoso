@@ -62,5 +62,30 @@ export const authService = {
     if (user) return JSON.parse(user);
     
     return null;
+  },
+
+  // Trocar senha do administrador
+  changeAdminPassword: async (passwordData) => {
+    try {
+      const token = localStorage.getItem('adminToken');
+      const response = await api.put('/auth/admin/change-password', passwordData, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response?.data?.message || 'Erro ao alterar senha');
+    }
+  },
+
+  // Esqueceu senha
+  forgotPassword: async (email) => {
+    try {
+      const response = await api.post('/auth/forgot-password', { email });
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response?.data?.message || 'Erro ao enviar email de recuperação');
+    }
   }
 };
