@@ -10,7 +10,7 @@ const Eventos = () => {
       data: '2024-02-15',
       local: 'Centro Comunitário',
       descricao: 'Almoço beneficente para arrecadar fundos',
-      status: 'Ativo'
+      status: ''
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const Eventos = () => {
       data: '2024-02-20',
       local: 'Praça Central',
       descricao: 'Venda de roupas doadas',
-      status: 'Planejando'
+      status: ''
     }
   ]);
 
